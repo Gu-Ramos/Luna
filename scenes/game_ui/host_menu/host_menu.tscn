@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=3 uid="uid://j3a7c18fh75e"]
+
+[ext_resource type="PackedScene" uid="uid://ll5oqpyb1htl" path="res://scenes/ui_elements/screen/Screen.tscn" id="1_f1s7h"]
+[ext_resource type="Script" path="res://scenes/game_ui/host_menu/host_menu.gd" id="2_gt7fn"]
+[ext_resource type="PackedScene" uid="uid://c36lew5uiwsgp" path="res://scenes/ui_elements/floating_button/Floating_button.tscn" id="3_4ndd0"]
+[ext_resource type="FontFile" uid="uid://dawqw5oe2cvam" path="res://content/fonts/HelveticaNeue Bold.ttf" id="5_b5ylc"]
+[ext_resource type="PackedScene" uid="uid://dx0us2dbgwv3b" path="res://scenes/ui_elements/pulse_checkbox/Pulse_checkbox.tscn" id="6_a5t43"]
+[ext_resource type="Theme" uid="uid://8b0nu8iueg0s" path="res://content/themes/theme2.tres" id="7_7nsnv"]
+[ext_resource type="FontFile" uid="uid://dc414c3nnnvnv" path="res://content/fonts/HelveticaNeue Light.ttf" id="8_vmos3"]
+[ext_resource type="PackedScene" uid="uid://b4qottdqdjrfi" path="res://scenes/ui_elements/smooth_slider/Smooth_slider.tscn" id="9_w2pia"]
+
+[node name="HostMenu" instance=ExtResource("1_f1s7h")]
+script = ExtResource("2_gt7fn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Previous" parent="VBoxContainer/HBoxContainer" index="0" instance=ExtResource("3_4ndd0")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "<"
+animation_speed = 0.25
+
+[node name="GameTitle" type="Label" parent="VBoxContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(254, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_b5ylc")
+theme_override_font_sizes/font_size = 32
+text = "Cartas Contra a Humanidade"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next" parent="VBoxContainer/HBoxContainer" index="2" instance=ExtResource("3_4ndd0")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = ">"
+animation_speed = 0.25
+
+[node name="Separator" type="Control" parent="VBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AskJoin" parent="VBoxContainer" index="2" instance=ExtResource("6_a5t43")]
+unique_name_in_owner = true
+layout_mode = 2
+target_scale = 1.05
+label_text = "Entrar no jogo"
+is_toggled = true
+
+[node name="Nickname" type="LineEdit" parent="VBoxContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_7nsnv")
+placeholder_text = "Nickname"
+clear_button_enabled = true
+caret_blink = true
+caret_force_displayed = true
+
+[node name="Separator4" type="Control" parent="VBoxContainer" index="4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SliderContainer" type="VBoxContainer" parent="VBoxContainer" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SliderContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("7_7nsnv")
+theme_override_fonts/font = ExtResource("8_vmos3")
+theme_override_font_sizes/font_size = 20
+text = "Número de cartas pretas: 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardsNumber" parent="VBoxContainer/SliderContainer" index="1" instance=ExtResource("9_w2pia")]
+layout_mode = 2
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+
+[node name="Separator5" type="Control" parent="VBoxContainer" index="6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" index="7"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Voting" parent="VBoxContainer/VBoxContainer" index="0" instance=ExtResource("6_a5t43")]
+unique_name_in_owner = true
+layout_mode = 2
+target_scale = 1.05
+label_text = "Modo votação"
+
+[node name="CustomWhite" parent="VBoxContainer/VBoxContainer" index="1" instance=ExtResource("6_a5t43")]
+unique_name_in_owner = true
+layout_mode = 2
+label_text = "Carta branca cust."
+
+[node name="CustomBlack" parent="VBoxContainer/VBoxContainer" index="2" instance=ExtResource("6_a5t43")]
+unique_name_in_owner = true
+layout_mode = 2
+label_text = "Carta preta cust."
+
+[node name="Separator2" type="Control" parent="VBoxContainer" index="8"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Host" parent="VBoxContainer" index="9" instance=ExtResource("3_4ndd0")]
+layout_mode = 2
+text = "Abrir servidor"
+
+[node name="Separator3" type="Control" parent="VBoxContainer" index="10"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Back" parent="VBoxContainer" index="11" instance=ExtResource("3_4ndd0")]
+layout_mode = 2
+text = "Voltar
+"
+
+[connection signal="pressed" from="VBoxContainer/AskJoin" to="." method="_on_ask_join_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Nickname" to="." method="_on_nickname_text_changed"]
+[connection signal="hard_value_changed" from="VBoxContainer/SliderContainer/CardsNumber" to="." method="_on_cards_number_hard_value_changed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Voting" to="." method="_on_voting_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/CustomWhite" to="." method="_on_custom_white_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/CustomBlack" to="." method="_on_custom_black_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

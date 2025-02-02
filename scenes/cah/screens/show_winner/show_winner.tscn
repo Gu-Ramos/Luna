@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk2bbpgfmjg5m"]
+
+[ext_resource type="PackedScene" uid="uid://ll5oqpyb1htl" path="res://scenes/ui_elements/screen/Screen.tscn" id="1_1kkj1"]
+[ext_resource type="Script" path="res://scenes/cah/screens/show_winner/show_winner.gd" id="2_n8it7"]
+[ext_resource type="Theme" uid="uid://8b0nu8iueg0s" path="res://content/themes/theme2.tres" id="3_ry73b"]
+[ext_resource type="FontFile" uid="uid://dc414c3nnnvnv" path="res://content/fonts/HelveticaNeue Light.ttf" id="4_ivng3"]
+[ext_resource type="PackedScene" uid="uid://c36lew5uiwsgp" path="res://scenes/ui_elements/floating_button/Floating_button.tscn" id="5_s7hx2"]
+
+[node name="ShowWinner" instance=ExtResource("1_1kkj1")]
+script = ExtResource("2_n8it7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+custom_minimum_size = Vector2(400, 720)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Separator" type="Control" parent="VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_ry73b")
+theme_override_fonts/font = ExtResource("4_ivng3")
+text = "Sample Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 2
+
+[node name="Separator2" type="Control" parent="VBoxContainer" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CardsContainer" type="HBoxContainer" parent="VBoxContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 270)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Separator3" type="Control" parent="VBoxContainer" index="4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer" index="5"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Next" parent="VBoxContainer/Control" index="0" instance=ExtResource("5_s7hx2")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -24.0
+offset_right = 200.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Próxima rodada"
+
+[node name="Separator4" type="Control" parent="VBoxContainer" index="6"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Control/Next" to="." method="_on_next_pressed"]

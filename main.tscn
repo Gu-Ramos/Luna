@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cslq6l7qk55wk"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_oi6f2"]
+[ext_resource type="Texture2D" uid="uid://dms4mpfwrvcps" path="res://content/assets/particles/sqr.png" id="2_6oigt"]
+[ext_resource type="PackedScene" uid="uid://udcue8regsrl" path="res://scenes/game_ui/settings/settings.tscn" id="2_w4n27"]
+[ext_resource type="PackedScene" uid="uid://cb2jaq3xwrgrh" path="res://scenes/game_ui/menu/menu.tscn" id="2_x3itb"]
+
+[sub_resource type="Gradient" id="Gradient_fgl0l"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.487437, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_7mmx0"]
+offsets = PackedFloat32Array(0, 0.507538, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oi6f2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackgroundParticles" type="CPUParticles2D" parent="Control"]
+unique_name_in_owner = true
+z_index = -5
+amount = 100
+lifetime = 20.0
+texture = ExtResource("2_6oigt")
+emission_shape = 3
+emission_rect_extents = Vector2(640, 360)
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 30.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.4
+color_ramp = SubResource("Gradient_fgl0l")
+color_initial_ramp = SubResource("Gradient_7mmx0")
+
+[node name="Game" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrentScreen" parent="Game" instance=ExtResource("2_x3itb")]
+layout_mode = 1
+offset_top = -720.0
+offset_bottom = -720.0
+
+[node name="Settings" parent="." instance=ExtResource("2_w4n27")]
+layout_mode = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="change_scene" from="Game/CurrentScreen" to="." method="change_scene"]
