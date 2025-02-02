@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3tetwbtfgdhj"]
-
-[ext_resource type="Script" path="res://test.gd" id="1_phrj2"]
-[ext_resource type="PackedScene" uid="uid://udcue8regsrl" path="res://scenes/game_ui/settings/settings.tscn" id="2_wl3du"]
-
-[node name="Test" type="Node2D"]
-script = ExtResource("1_phrj2")
-next_scene = ExtResource("2_wl3du")
