@@ -21,8 +21,8 @@ Global="*res://global.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [file_customization]
 
@@ -44,4 +44,4 @@ folder_colors={
 
 [gui]
 
-theme/custom="res://content/themes/theme1.tres"
+theme/custom="res://content/themes/theme_cards.tres"

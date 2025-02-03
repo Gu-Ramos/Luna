@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ct0o4u7jepmja" path="res://scenes/ui_elements/pulse_button/Pulse_button.tscn" id="1_2ll55"]
 [ext_resource type="Script" path="res://scenes/ui_elements/pulse_checkbox/pulse_checkbox.gd" id="1_usvlw"]
 [ext_resource type="Texture2D" uid="uid://b37i0kp2vgepa" path="res://content/assets/ui/checkmark.png" id="2_4dq6u"]
-[ext_resource type="Theme" uid="uid://8b0nu8iueg0s" path="res://content/themes/theme2.tres" id="4_peear"]
+[ext_resource type="Theme" uid="uid://8b0nu8iueg0s" path="res://content/themes/theme_ui.tres" id="4_peear"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6odmt"]
 

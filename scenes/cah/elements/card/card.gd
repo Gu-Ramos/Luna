@@ -1,6 +1,11 @@
-#TODO: "carta preta", cartas customizáveis, brasil comunista, felps anão, Kibe, cartas LGBT, sw
+#TODO: "carta preta", cartas customizáveis, brasil comunista, felps anão, Kibe, cartas LGBT
 class_name Card
 extends AspectRatioContainer
+
+enum ScaleMode {
+	Auto,
+	None
+}
 
 signal toggled(toggled_on : bool, node : Card)
 signal finished
@@ -13,7 +18,7 @@ const characters : String = "!@#$%*()_+=-£¢¬[{/\\|;:?><,.^~\"'" # 31
 @export var is_toggled : bool = false
 @export var animation_speed : float = 0.25
 @export var target_scale : float = 1.10
-
+var scale_mode = ScaleMode.Auto
 
 var main_texture : CompressedTexture2D
 var scale_tween : Tween
@@ -21,17 +26,15 @@ var scale_tween : Tween
 #region Base functions
 func _ready(): 
 	await %Base.resized
-	%Control.scale = get_card_scale()
-	if is_clickable and is_toggled:
-		%Image.scale = Vector2(target_scale, target_scale)
-	update_card(type, text)
+	_on_resized()
 	finished.emit()
 
 func _on_resized():
-	if is_clickable and is_toggled:
-		%Image.scale = Vector2(target_scale, target_scale)
-	%Control.scale = get_card_scale()
-	update_card(type, text)
+	if scale_mode == ScaleMode.Auto:
+		if is_clickable and is_toggled:
+			%Image.scale = Vector2(target_scale, target_scale)
+		%Control.scale = get_card_scale()
+		update_card(type, text)
 
 func _process(_delta):
 	if text == "<glitch_text>":

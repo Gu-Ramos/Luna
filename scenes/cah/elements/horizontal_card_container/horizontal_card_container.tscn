@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmggc1v62qexs"]
+
+[ext_resource type="Script" path="res://scenes/cah/elements/horizontal_card_container/horizontal_card_container.gd" id="1_f8le0"]
+[ext_resource type="PackedScene" uid="uid://cvkh21ko7amti" path="res://scenes/cah/elements/card/card.tscn" id="1_qb73a"]
+[ext_resource type="Theme" uid="uid://8b0nu8iueg0s" path="res://content/themes/theme_ui.tres" id="2_fdhor"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -445.0
+offset_right = 267.0
+offset_bottom = 445.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_f8le0")
+
+[node name="VContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(534, 812)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = -410.0
+offset_right = 268.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(267, 445)
+theme_override_constants/separation = 4
+
+[node name="HContainer" type="HBoxContainer" parent="VContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Card" parent="VContainer/HContainer" instance=ExtResource("1_qb73a")]
+visible = false
+custom_minimum_size = Vector2(534, 0)
+layout_mode = 2
+
+[node name="Card2" parent="VContainer/HContainer" instance=ExtResource("1_qb73a")]
+visible = false
+custom_minimum_size = Vector2(534, 0)
+layout_mode = 2
+
+[node name="separator" type="Control" parent="VContainer"]
+layout_mode = 2
+
+[node name="Bar" type="VBoxContainer" parent="VContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VContainer/Bar"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VContainer/Bar"]
+layout_mode = 2
+theme = ExtResource("2_fdhor")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+clip_text = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+border_color = Color(0.907226, 0.092499, 1.92523e-07, 1)
+border_width = 20.0

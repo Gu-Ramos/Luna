@@ -2,7 +2,7 @@ class_name PulseButton
 extends Button
 
 @export var is_toggleable : bool = true
-@export var is_toggled : bool = true #TODO: get value from config
+@export var is_toggled : bool = true
 @export var texture_on : CompressedTexture2D
 @export var texture_off : CompressedTexture2D
 

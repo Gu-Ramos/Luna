@@ -9,27 +9,27 @@ func _ready():
 	await get_tree().create_timer(0.25).timeout
 	$Game/CurrentScreen.slide_down()
 
-#
-#func _on_resized():
-	##TODO: Better scaling formula
-	##TODO: size.x is kinda buggy
-	##TODO: Portrait mode
-	#if size.y < 720:
-		#global_scale = Vector2(1,1) * size.y/720
-	#elif size.y > 720*1.25:
-		#global_scale = Vector2(1,1) * size.y/(720*1.25)
-	#else:
-		#global_scale = Vector2(1,1)
-	#if size.x < 350*global_scale.x:
-		#global_scale = Vector2(1,1) * size.x/350
-	#
-	#if $Game.find_child("PreviousScreen", false, false) != null:
-		#$Game/PreviousScreen.scale = global_scale
-	#$Game/CurrentScreen.scale = global_scale
-	#$Settings.scale = global_scale
-	#$Settings.position = global_scale * 16
-	#
-	#%BackgroundParticles.emission_rect_extents = size/2
+
+func _on_resized():
+	#TODO: Better scaling formula
+	#TODO: size.x is kinda buggy
+	#TODO: Portrait mode
+	if size.y < 720:
+		global_scale = Vector2(1,1) * size.y/720
+	elif size.y > 900:
+		global_scale = Vector2(1,1) * size.y/(900)
+	else:
+		global_scale = Vector2(1,1)
+	if size.x < 350*global_scale.x:
+		global_scale = Vector2(1,1) * size.x/350
+	
+	if $Game.find_child("PreviousScreen", false, false) != null:
+		$Game/PreviousScreen.scale = global_scale
+	$Game/CurrentScreen.scale = global_scale
+	$Settings.scale = global_scale
+	$Settings.position = global_scale * 16
+	
+	%BackgroundParticles.emission_rect_extents = size/2
 
 
 func change_scene(scene : PackedScene, transition : int) -> void:

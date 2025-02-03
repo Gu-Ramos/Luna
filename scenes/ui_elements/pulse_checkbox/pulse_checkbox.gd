@@ -4,7 +4,7 @@ extends Button
 @export var animation_speed : float = 1.0
 @export var target_scale : float = 1.2
 @export var label_text : String = ""
-@export var is_toggled : bool = true #TODO: get value from config
+@export var is_toggled : bool = true
 @onready var label : Label = $HBoxContainer/Control/Label
 @onready var pulse_button : PulseButton = $HBoxContainer/C/C2/PulseButton
 var scale_tween : Tween

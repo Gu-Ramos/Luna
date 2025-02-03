@@ -15,13 +15,14 @@ var CARD_TEXTURES : Array[CompressedTexture2D] = [
 	load("res://content/assets/cards/pau.png"),           # 10
 ]
 var SCREENS : Array[PackedScene] = [
-	load("res://scenes/game_ui/menu/menu.tscn"),          # 0
+	load("res://scenes/game_ui/menu/menu.tscn"),           # 0
 	load("res://scenes/game_ui/host_menu/host_menu.tscn"), # 1
 	load("res://scenes/game_ui/join_menu/join_menu.tscn")  # 2
 ]
 var ELEMENTS : Array[PackedScene] = [
-	preload("res://scenes/cah/elements/card/card.tscn"),                                      # 0
-	preload("res://scenes/cah/elements/vertical_card_container/vertical_card_container.tscn") # 1
+	preload("res://scenes/cah/elements/card/card.tscn"), # 0
+	preload("res://scenes/cah/elements/vertical_card_container/vertical_card_container.tscn"), # 1
+	preload("res://scenes/cah/elements/horizontal_card_container/horizontal_card_container.tscn"), # 2
 ]
 var CONFIGS : Dictionary = {
 	global = {
@@ -74,7 +75,10 @@ var GAME : Dictionary = {
 			"1m³ de tungstênio."
 		],
 	],
-	player_cards = [],
+	player_cards = [
+		"Carta 0", "Carta 1", "Carta 2", "Carta 3", "Carta 4",
+		"Carta 5", "Carta 6", "Carta 7", "Carta 8", "Carta 9",
+	],
 	player_list = [],
 	extra_info = {
 		winners = ["Jôncio"]

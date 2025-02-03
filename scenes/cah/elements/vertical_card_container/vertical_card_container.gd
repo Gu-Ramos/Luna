@@ -1,4 +1,4 @@
-class_name CardContainer
+class_name VCardContainer
 extends Control
 
 var cards : Array[Card] = []

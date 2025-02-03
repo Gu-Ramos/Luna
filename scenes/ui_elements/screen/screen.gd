@@ -1,4 +1,3 @@
-#TODO: get_viewport().size?
 extends Control
 class_name GameScreen
 signal change_scene(scene : PackedScene, transition : int)

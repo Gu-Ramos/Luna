@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvkh21ko7amti"]
 
 [ext_resource type="Script" path="res://scenes/cah/elements/card/card.gd" id="1_2nw4g"]
-[ext_resource type="Theme" uid="uid://sfftfr7d567s" path="res://content/themes/theme1.tres" id="2_wgjof"]
+[ext_resource type="Theme" uid="uid://sfftfr7d567s" path="res://content/themes/theme_cards.tres" id="2_wgjof"]
 [ext_resource type="FontFile" uid="uid://oics6kd4gui7" path="res://content/fonts/HelveticaNeueIt.ttf" id="3_0t0gt"]
 
 [node name="Card" type="AspectRatioContainer"]
@@ -89,6 +89,7 @@ fit_content = true
 scroll_active = false
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Base"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +97,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-border_width = 3.0
+border_color = Color(0.399375, 0.501034, 0.66973, 1)
+border_width = 800.0
 
 [connection signal="gui_input" from="Base" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="Base" to="." method="_on_mouse_entered"]
